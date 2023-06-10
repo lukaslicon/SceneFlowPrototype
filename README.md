@@ -1,2 +1,3 @@
 # SceneFlowPrototype
-**How we communicate data: **
+Our example of communicating data between different scenes is going to be through transition scenes in between our games. It will communicate to the player the win/lose condition and total score of the current mini game. Then once the player gets back to the open space world the score is stored in a global variable. We use this global variable to show different endings. The character either found housing or was homeless, they either got rid of all the ghosts or were haunted for the rest of humanity, and they either were able to clean up the toxic waste to save the fish or all the fish went endangered. These different win conditions change the ending and then we show the score of the player across all mini games combined. 
+In our prototype we have a limited amount of win conditions but we will be storing variables in global variables such as game1points on Load.js inside the load folder.
