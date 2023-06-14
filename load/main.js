@@ -1,19 +1,39 @@
+'use strict';
 
+// Phaser game configuration
 let config = {
     type: Phaser.AUTO,
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH,
-    width: 1920,
-    height: 1080,
-    physics:{
+    pixelArt: true,
+    zoom: 1,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 1920,
+        height: 1080,
+    },
+    physics: {
         default: 'arcade',
         arcade: {
             debug: false,
             debugShowVelocity: false
-    }
-},
-scene: [load, title, npcScreen, MiniGameTEST],
-title: "Mini Game Prototype",
+        }
+    },
+    scene: [Load, Intro, Title, TextIntro, npcScreen, MiniGameTEST, outro],
+    title: "FutureBound",
+    scaleMode: Phaser.Scale.ScaleModes.RESIZE,
+    autoRound: true,
+    orientation: 'auto'
 };
 
-let game = new Phaser.Game(config);
+var game = new Phaser.Game(config);
+
+// Event listener for orientation change
+game.scene.scenes.forEach(function (scene) {
+    scene.scale.on('orientationchange', function (orientation) {
+        if (orientation === Phaser.Scale.PORTRAIT) {
+            scene.scale.resize(window.innerWidth, window.innerHeight);
+        } else if (orientation === Phaser.Scale.LANDSCAPE) {
+            scene.scale.resize(window.innerWidth, window.innerHeight);
+        }
+    });
+});
