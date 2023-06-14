@@ -172,7 +172,7 @@ class Cinematics extends settings {
                 this.cameras.main.fadeOut(3000, 0, 0, 0, (camera, progress) => {
                     this.backMusic.stop();
                     if (progress === 1) {
-                        this.scene.start('outro', {}, { alpha: 0, duration: 1000 });
+                        this.scene.start('OutroTEST', {}, { alpha: 0, duration: 1000 });
                     }
                 });
             }, [], this);
